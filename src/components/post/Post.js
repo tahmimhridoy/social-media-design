@@ -1,13 +1,19 @@
 import { MoreVert } from '@mui/icons-material';
-import React from 'react';
+import React, { useState } from 'react';
 import './post.css';
 import { Users } from '../../dummyData'; 
 
 const Post = ({post}) => {
-
-    const user = Users.filter(u => u.id === post.userId);
-
     const {date, comment, photo, like} = post;
+    const user = Users.filter(u => u.id === post.userId);
+    const [currentLike, setCurrentLike] = useState(like);
+    const [isLiked, setIsLiked] = useState(false);
+
+    const likeHandler = () => {
+        setCurrentLike(isLiked ? currentLike - 1 : currentLike + 1);
+        setIsLiked(!isLiked);
+    }
+
     return (
         <div className="post">
             <div className="postWrapper">
@@ -27,9 +33,9 @@ const Post = ({post}) => {
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">
-                        <img className='likeIcon' src="assets/like.png" alt="" />
-                        <img className='likeIcon' src="assets/heart.png" alt="" />
-                        <span className="postLikeCon">{like} People Like it</span>
+                        <img className='likeIcon' onClick={likeHandler} src="assets/like.png" alt="" />
+                        <img className='likeIcon' onClick={likeHandler} src="assets/heart.png" alt="" />
+                        <span className="postLikeCon">{currentLike} People Like it</span>
                     </div>
                     <div className="postBottomLeft">
                         <span className="postCommentText">{comment} comments</span>

@@ -1,5 +1,7 @@
 import React from 'react';
 import './rightbar.css';
+import { Users } from '../../dummyData';
+import Online from '../Online/Online';
 
 const Rightbar = () => {
     return (
@@ -12,76 +14,12 @@ const Rightbar = () => {
                 <img src="assets/ad.png" alt="" className="rightbarAd" />
                 <h4 className="rightbarTitle">Active Friends</h4>
                 <ul className="rightbarFriendList">
-                    <li className="rightbarFriend">
-                        <div className="rightbarProflieImgContainer">
-                            <img className='rightbarProflieImg' src="assets/person/3.jpeg" alt="" />
-                            <span className="rightbarOnline"></span>
-                        </div>
-                        <span className="rightbarUsername">Rakib Sheikh</span>
-                    </li>
-                    <li className="rightbarFriend">
-                        <div className="rightbarProflieImgContainer">
-                            <img className='rightbarProflieImg' src="assets/person/3.jpeg" alt="" />
-                            <span className="rightbarOnline"></span>
-                        </div>
-                        <span className="rightbarUsername">Rakib Sheikh</span>
-                    </li>
-                    <li className="rightbarFriend">
-                        <div className="rightbarProflieImgContainer">
-                            <img className='rightbarProflieImg' src="assets/person/3.jpeg" alt="" />
-                            <span className="rightbarOnline"></span>
-                        </div>
-                        <span className="rightbarUsername">Rakib Sheikh</span>
-                    </li>
-                    <li className="rightbarFriend">
-                        <div className="rightbarProflieImgContainer">
-                            <img className='rightbarProflieImg' src="assets/person/3.jpeg" alt="" />
-                            <span className="rightbarOnline"></span>
-                        </div>
-                        <span className="rightbarUsername">Rakib Sheikh</span>
-                    </li>
-                    <li className="rightbarFriend">
-                        <div className="rightbarProflieImgContainer">
-                            <img className='rightbarProflieImg' src="assets/person/3.jpeg" alt="" />
-                            <span className="rightbarOnline"></span>
-                        </div>
-                        <span className="rightbarUsername">Rakib Sheikh</span>
-                    </li>
-                    <li className="rightbarFriend">
-                        <div className="rightbarProflieImgContainer">
-                            <img className='rightbarProflieImg' src="assets/person/3.jpeg" alt="" />
-                            <span className="rightbarOnline"></span>
-                        </div>
-                        <span className="rightbarUsername">Rakib Sheikh</span>
-                    </li>
-                    <li className="rightbarFriend">
-                        <div className="rightbarProflieImgContainer">
-                            <img className='rightbarProflieImg' src="assets/person/3.jpeg" alt="" />
-                            <span className="rightbarOnline"></span>
-                        </div>
-                        <span className="rightbarUsername">Rakib Sheikh</span>
-                    </li>
-                    <li className="rightbarFriend">
-                        <div className="rightbarProflieImgContainer">
-                            <img className='rightbarProflieImg' src="assets/person/3.jpeg" alt="" />
-                            <span className="rightbarOnline"></span>
-                        </div>
-                        <span className="rightbarUsername">Rakib Sheikh</span>
-                    </li>
-                    <li className="rightbarFriend">
-                        <div className="rightbarProflieImgContainer">
-                            <img className='rightbarProflieImg' src="assets/person/3.jpeg" alt="" />
-                            <span className="rightbarOnline"></span>
-                        </div>
-                        <span className="rightbarUsername">Rakib Sheikh</span>
-                    </li>
-                    <li className="rightbarFriend">
-                        <div className="rightbarProflieImgContainer">
-                            <img className='rightbarProflieImg' src="assets/person/3.jpeg" alt="" />
-                            <span className="rightbarOnline"></span>
-                        </div>
-                        <span className="rightbarUsername">Rakib Sheikh</span>
-                    </li>
+                    {
+                        Users.map(u => <Online
+                        key={u.id}
+                        user={u}
+                        ></Online>)
+                    }
                 </ul>
             </div>
         </div>
